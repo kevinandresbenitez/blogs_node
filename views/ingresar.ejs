@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+    <html >
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/partials/style_header.css">
+        <link rel="stylesheet" href="styles/partials/style_footer.css">
+        <link rel="stylesheet" href="styles/style_ingresar.css">
+
+        <title>Ingresar</title>
+    </head>
+
+    <body>
+
+        <%- include("partials/header.ejs")%>
+
+
+        <article id="articulo_reg">
+            <div class="cabezera_interna">
+                <div class="nav_inter">
+                        <a href="/">Inicio</a>
+                        <a href="/autores">Autores</a>
+                </div>
+                <div class="titulo_principal">
+                    <h1>Ingresar</h1>
+                </div>
+            </div>
+
+            <div class="container_article">
+                <div class="container_1">
+
+                    
+
+                        <fieldset >
+                            <legend align="center"><img src="images/usuario.png" alt=""></legend>
+
+                            <% if(error.length>0){ %>
+                                <h1 id="mensaje_error"> <img src="icons/alert-circle.svg" alt=""> <%= error %></h1>
+                             <%}%>
+
+                            <form action="/procesar_ingreso" method="POST" id="formulario">
+                                
+                                <div id="formulario_content">
+
+
+
+
+
+                                        <div> <label for="email"><h3>Gmail</h3></label><p></p>
+                                        <input type="email" name="email" placeholder="@gmail..." ></div> 
+
+                                        <div><label for="contraseña"><h3>Contraseña</h3></label><p></p>
+                                        <input type="password" name="contraseña" placeholder="Contraseña..." ></div> 
+
+                                        <div><input value="Ingresar" type="submit" id="boton_enviar_form" onclick="return verificar(this.form)"></div> 
+
+
+                                </div>    
+
+                            </form>
+
+
+                        </fieldset>
+
+                </div>
+            </div>
+        </article>
+
+
+        <%- include("partials/footer.ejs")%>
+
+    </body>
+    <script src="javascripts/style_header.js"></script>
+    <script src="javascripts/verificar_registro.js"></script>
+</html>

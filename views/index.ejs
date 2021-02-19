@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/partials/style_header.css">
+        <link rel="stylesheet" href="styles/partials/style_footer.css">
+        <link rel="stylesheet" href="styles/style_index.css">
+        <title>Bienvenido</title>
+    </head>
+
+    <body>
+
+        <%- include("partials/header.ejs")%>
+
+        <article id="articulo">
+
+            <div class="cabezera_interna">
+                <div class="nav_inter">
+                        <a href="/">Inicio</a>
+                        <a href="/autores">Autores</a>
+
+
+                   
+
+
+                   <% if(usuario_registrado){ %>
+
+                    <a href="http://localhost:8080/admin/index" id="mi_cuenta">Mi cuenta</a>
+                    <p id="usuario"><%= usuario_registrado%></p>
+                    <p id="separador">|</p>
+                    <a id="salir" href="/cerrar_seccion">Cerrar sesion</a>
+                    <%}%>
+
+                </div>
+    
+
+
+                <%if(!data.length){%>
+                    <div class="titulo_principal">
+                        <h1>! No se encontraron resultados !</h1>
+                    </div>
+                <%}else{%>
+                    <div class="titulo_principal">
+                        <h1>! Bienvenido a tu viaje !</h1>
+                    </div>
+                    <%}%>
+
+
+            </div>
+    
+    
+            <% for(var i=0 ;data.length > i  ;i++ ) {%> 
+            <div class="container_article ">
+                <% if(data[i].avatar && data[i].avatar !=""){  %>
+
+                    <div class="container_1">
+                        <img src="avatars/<%=data[i].avatar%>" alt="" class="imagen_user">
+                    </div>
+
+
+               <% }else{  %>
+                    
+                    <div class="container_1">
+                        <img src="images/usuario.png" alt="" class="imagen_user">
+                    </div>
+                <%}%>
+    
+                <div class="container_2">
+                    <div class="titulo"><h1><a  href="/detalles?public_id=<%= data[i].id %> "><%= data[i].titulo%></a></h1></div>
+                    <div class="resumen">
+                        <%=data[i].resumen%>
+                    </div>
+                </div>
+    
+                <div class="container_3">
+                    <div>
+                        <h3>Autor:</h3>
+                        <p><%=data[i].pseudonimo%></p>
+                    </div>
+    
+                    <div>
+                        <h3>Fecha:</h3>
+                        <p>
+                            <div>
+                                <%=data[i].fecha_hora.getDate()%>/
+                                <%=data[i].fecha_hora.getMonth()+1%>/
+                                <%=data[i].fecha_hora.getFullYear()%>
+                            </div>
+                            &nbsp;
+
+                            <div>
+                                <%= data[i].fecha_hora.getHours()%>
+                                <strong>:</strong>
+                                <%=data[i].fecha_hora.getMinutes()%>
+                            </div>
+                                
+
+                        </p>
+                    </div>
+    
+                    <div>
+                        <img src="icons/thumbs-up.svg" alt="">
+                        <p>( <%=data[i].votos%> )</p>
+                    </div>
+    
+    
+                </div>
+    
+        </div>
+            <% }%>
+        
+
+
+
+
+
+
+                <div class="cabezera_interna_inf">
+    
+                    <div class="nav_inter_inf">
+
+                        <%if(pagina_actual == 0 && data.length >= 5 ){ %>
+
+                        <%}   else if(pagina_actual > 0){   %>
+                            <a href="/?pagina=<%= pagina_anterior %> ">Anterior</a>
+                        <%}%>
+
+                        <%if(data.length == 5 ){%>
+                            <a href="/?pagina=<%= pagina_siguiente %> ">Siguiente</a>
+
+                        <%}%>
+
+                    </div>
+                </div>
+
+
+
+    
+        </article>
+
+        <%- include("partials/footer.ejs")%>
+
+    </body>
+    <script src="javascripts/style_header.js"></script>
+</html>

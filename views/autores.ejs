@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles/partials/style_footer.css">
+        <link rel="stylesheet" href="styles/partials/style_header.css">
+        <link rel="stylesheet" href="styles/style_autores.css">
+        <title>Autores</title>
+    </head>
+    <body>
+        <%- include("partials/header.ejs")%>
+
+
+        <article id="articulo">
+
+            <div class="cabezera_interna">
+                <div class="nav_inter">
+                        <a href="/">Inicio</a>
+                </div>
+
+                <div class="titulo_principal">
+                    <h1>Nuestros Autores</h1>
+                </div>
+
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+
+            <div class="container_1">
+
+                <%for(var sec =0; datos.length > sec ; sec ++   ){%>
+
+                    <div class="seccion">
+
+                        <div class="seccion_1">
+
+                            <%if(datos[sec].avatar){%>
+                                <img src="avatars/<%=datos[sec].avatar%>" id="imagen_autor">
+                            <%}else{%>
+                                <img src="images/usuario.png" id="imagen_autor">
+                            <%}%>
+
+                            <div id="nombre_autor"> <%= datos[sec].pseudonimo %></div>
+                        </div>
+
+
+                        <div class="seccion_2">
+                            <div>
+                                <h3>Publicaciones</h3>
+                            </div>
+                         <%   for(var i =0 ; datos[sec].titulo[i] ;i++ ){ %>
+                            <div>
+                                <a href="/detalles?public_id=<%=datos[sec].id[i]%>"><%= datos[sec].titulo[i] %></a>
+                            </div>   
+                        <%  } %>
+
+                        <% if(!datos[sec].titulo[0]){ %>
+                            <div >
+                                No hay publicaciones :(
+                            </div> 
+                        <%}%>
+
+                        </div>
+
+
+                    </div>
+
+                <%}%>
+
+            </div>
+
+
+         </article>
+
+        <%- include("partials/footer.ejs")%>
+
+    </body>
+
+    <script src="javascripts/style_header.js"></script>
+
+</html>

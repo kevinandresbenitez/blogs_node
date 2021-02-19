@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+    <html >
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../styles/partials/style_header.css">
+        <link rel="stylesheet" href="../styles/partials/style_footer.css">
+        <link rel="stylesheet" href="../styles/partials/admin/style_agregar_editar.css">
+        <script src="../javascripts/ckeditor5-build-classic/ckeditor.js"></script>
+
+        <title>Cuenta</title>
+    </head>
+
+    <body>
+
+        <%- include("../partials/header.ejs")%>
+
+
+        <article id="articulo_agre">
+            <div class="cabezera_interna">
+                <div class="nav_inter">
+                        <a href="/">Inicio</a> 
+                        <a href="http://localhost:8080/admin/index" id="mi_cuenta">Mi cuenta</a>
+
+                </div>
+
+                <div class="titulo_principal">
+                    <h1>Agregar</h1>
+                </div>
+
+            </div>
+
+            
+            <div id="formulario_agregar">
+                <form action="/procesar_agregar" method="POST">
+
+
+
+                        <label for="titulo">Titulo</label><p></p>
+                        <input type="text" placeholder="Titulo..." name="titulo" required><p></p>
+
+                        <label for="resumen">Resumen</label><p></p>
+                        <input type="text" placeholder="Resumen..." name="resumen" height="50 rows" required><p></p>
+
+                        <label for="contenido">Contenido</label><p></p>
+                        <div id="contenedor_contenido" ><textarea   name="contenido" id="contenido" cols="30" rows="10" ></textarea><p></p></div>
+
+
+                        <input type="submit" name="agreagar" id="agregar_publicacion" value="Agregar">
+
+
+                </form>
+            </div>    
+
+           
+
+
+        </article>
+
+
+
+
+
+        <%- include("../partials/footer.ejs")%>
+
+    </body>
+    <script src="../javascripts/style_header.js"></script>
+    <script src="../javascripts/agregar_editar.js"></script>
+</html>

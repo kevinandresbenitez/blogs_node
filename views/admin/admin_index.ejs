@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+    <html >
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../styles/partials/style_header.css">
+        <link rel="stylesheet" href="../styles/partials/style_footer.css">
+        <link rel="stylesheet" href="../styles/admin/style_admin_index.css">
+
+        <title>Cuenta</title>
+    </head>
+
+    <body>
+
+        <%- include("../partials/header.ejs")%>
+
+
+        <article id="articulo_reg">
+            <div class="cabezera_interna">
+                <div class="nav_inter">
+                        <a href="/">Inicio</a>
+            
+                        <p id="usuario"><%= datos[0].pseudonimo%> </p>
+                        <p id="separador">|</p>
+                        <a id="salir" href="/cerrar_seccion">Cerrar sesion</a>
+                        
+
+                </div>
+
+                <% if(ingreso_registro.length > 0){%>
+                    <div class="titulo_principal">
+                        <h1><%=ingreso_registro%></h1>
+                    </div>
+               <%}else{%>
+                <div class="titulo_principal">
+                    <h1>Bienvenido a su cuenta</h1>
+                </div>
+                <%}%>
+
+            </div>
+
+
+            <div class="publicaciones">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Titulo</th>
+                            <th>Resumen</th>
+                            <th>Votos</th>
+                            <th>Modificar</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                            <% if(datos[0].titulo){ %>
+                                <% for(var sec =0;datos.length > sec ;sec ++){   %>
+
+                                    <tr>
+
+                                        <td> <%= datos[sec].titulo %>    </td>
+                                        <td> <%= datos[sec].resumen %>    </td>
+                                        <td> <%= datos[sec].votos %>    </td>
+                                        <td> <a href="/editar_publ?id_publ=<%= datos[sec].id %>">Editar</a> / <a  href="/eliminar_public?id_publ=<%= datos[sec].id %>">Eliminar</a>   </td>
+
+                                    </tr>
+                                <%   } %>                              
+                           <% }else{ %>
+                        
+                                <tr>
+                                    <td> --- </td>
+                                    <td> --- </td>
+                                    <td> --- </td>
+                                    <td> --- </td>
+                                </tr>
+                            <%}%>
+
+                    </tbody>
+
+
+                </table>
+                <a href="/agregar" id="agregar">Agregar</a>
+
+            </div>
+
+
+
+
+        </article>
+
+
+
+
+
+        <%- include("../partials/footer.ejs")%>
+
+    </body>
+    <script src="../javascripts/style_header.js"></script>
+</html>
