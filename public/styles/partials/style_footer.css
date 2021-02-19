@@ -1,0 +1,21 @@
+.container_footer{
+    width: 100%;
+    min-height: 100px;
+    background-color: #deb887;
+
+
+    display: flex;
+    flex-flow: row wrap;
+
+    margin: auto;
+
+}
+
+.container_footer p{
+
+    text-align: center;
+
+    margin: auto;
+    padding: 10px;
+
+}

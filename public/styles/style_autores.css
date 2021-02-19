@@ -1,0 +1,158 @@
+    /* para que tenga este color a los exteriores de el contenedor */
+#articulo{
+    background-color: #FFDFB5;
+    padding-bottom:10%;
+    min-height: 800px;
+}
+
+
+    /* botones y tituo  */
+.cabezera_interna{
+    width:90%;
+
+    margin: auto;
+    padding: 5px;
+
+    background-color: #FFDFB5;
+
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+
+        /* para los botones internos */
+.cabezera_interna .nav_inter {
+    width: 100%;
+    margin-bottom: 20px;
+
+    display: flex;
+    flex-flow: row wrap;
+}
+.cabezera_interna .nav_inter a {
+    background-color: #b8860b;
+    color: black;
+
+    text-align: center;
+    text-decoration: none;
+
+    padding: 10px;
+    margin: 5px;
+}
+.cabezera_interna .nav_inter a:hover {
+    background-color: #d89d0d;
+}
+
+    /* titulo principal */
+.cabezera_interna .titulo_principal{
+    margin: auto;
+    margin-bottom: 10px
+}
+.cabezera_interna .titulo_principal h1{
+    font-size: 42px;
+    text-align: center;
+
+}
+
+
+
+
+    /* para los contenedores */
+
+article .container_1 {
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+
+    display: flex;
+    flex-flow: row wrap;
+
+
+
+
+}
+.seccion{
+    width: 30%;
+    margin: 10px auto;
+    border: 1px solid black;
+
+}
+
+.seccion_1{
+    max-width: 200px;
+    height: 50px;
+
+    
+    padding: 10px ;
+    margin: auto;
+    
+    display: flex;
+    overflow: hidden
+    
+}
+.seccion_2{
+    height: 80px;
+
+    padding: 5px;
+    margin: auto;
+    
+    border-top: 1px solid black;
+    display: flex;
+    flex-flow: column nowrap;
+
+    overflow-y: auto;
+}
+.seccion_2 div{
+    margin: auto;
+    text-align: center;
+    padding: 3px;
+}
+
+
+
+
+
+        /* para la imagen de los autores y nombres */
+
+#imagen_autor{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    margin: auto;
+}
+#nombre_autor{
+    width: 100px;
+    margin: auto;
+}
+
+
+
+
+
+
+@media (max-width:800px){
+
+
+    
+    
+    .seccion{
+        width: 45%;
+
+    }
+
+
+}
+
+
+
+@media (max-width:500px){
+
+    
+.seccion{
+    width: 90%;
+
+}
+
+
+}

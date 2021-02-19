@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+*{  padding: 0px;
+    margin: 0px;
+}
+    
+.header{
+    display: flex;
+}    
+
+.container_header_1{
+    width: 40%;
+    
+    display: flex;
+    flex-flow: row wrap;
+
+    background-color: #deb887;
+}
+.container_header_1 button{
+    width: 40px;
+    height: 40px;
+
+    background-color: #deb887;
+    border-radius: 5px;
+    border:2px solid #36250f ;
+
+    margin: auto 10px;
+    display: none;
+}
+.container_header_1 button:active{
+    background-color: #a77c40;
+}
+
+
+.container_header_1 h1{
+    font-size: 46px;
+    font-family: 'Redressed', cursive;
+    margin: auto 30px;
+
+}
+
+.container_header_2{
+    width: 60%;
+    background:#deb887;
+    
+}
+.container_header_2 ul {
+    float: right;
+    margin-right: 5%;
+}
+.container_header_2 ul li{
+    text-align: center;
+    list-style: none;
+
+    color: black;
+    background-color:#3C7391;
+
+    float: left;
+    margin: 20px 5px;
+
+}
+.container_header_2 ul li:hover{
+background-color:#87BFDE;
+}
+.container_header_2 ul li:active{
+    background-color:#d3a05f ;
+}
+
+
+.container_header_2 ul li a{
+    text-align: center;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+
+    display: block;
+    padding:15px;
+}
+.container_header_2 ul li div{
+    text-align: center;
+    color: black;
+
+    display: flex;
+    justify-content: center;
+    
+    padding:12px;
+    margin: auto;
+}
+
+
+@media(max-width:800px){
+    .header{
+        display: block;
+    }   
+    .container_header_1{
+        width: 100%;
+    }
+    .container_header_1 h1{
+        margin: auto 10px;
+        font-size: 36px;
+    }
+    .container_header_2{
+        position: fixed;
+        left:  -100%;
+        background-color: #e2c094;
+
+        width: 75%;
+        max-width: 300px;
+        height: 100%;
+
+    }
+    .container_header_2 ul {
+        margin: 0px 0px;
+        float: none;
+
+    }
+    .container_header_2 ul li{
+        float: none;
+        margin: 0%;
+        margin: auto;
+        border-bottom: 2px solid  #e2c094;
+    }
+    .container_header_1 button{
+        display: block;
+        margin: 15px;
+    }
+
+}
+
+@keyframes animacion_header_1{
+    to{
+        left: -100%;
+    }
+    from{
+        left:0%;
+    }
+}
+
+@keyframes animacion_header_2{
+    to{
+        left: 0%;
+    }
+    from{
+        left:-100%;
+    }
+}
+
+
+@media(max-width:500px){
+    .container_header_2 ul li div img{
+        display: none;
+    }
+
+    .container_header_1 h1{
+        font-size: 32px;
+    }
+
+    #Buscar{
+        margin-top: 5px;
+    }
+}

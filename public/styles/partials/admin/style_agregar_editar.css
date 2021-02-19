@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap');
+
+    /* para que tenga este color a los exteriores de el contenedor y espacio con el footer*/
+#articulo_agre{
+    background-color: #FFDFB5;
+    padding-bottom: 15%;
+}
+
+    /* botones nav internos */
+.cabezera_interna{
+    width:90%;
+
+    margin: auto;
+    padding: 5px;
+
+    background-color: #FFDFB5;
+
+    display: flex;
+    flex-flow: row wrap;
+}
+        /* para los botones internos */
+.cabezera_interna .nav_inter {
+    width: 100%;
+    margin-bottom: 20px;
+
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+.cabezera_interna .nav_inter {
+    width: 100%;
+    margin-bottom: 20px;
+
+    display: flex;
+    flex-flow: row wrap;
+}
+
+
+.cabezera_interna .nav_inter a {
+    background-color: #b8860b;
+    color: black;
+
+    text-align: center;
+    text-decoration: none;
+
+    padding: 10px;
+    margin: 5px;
+}
+.cabezera_interna .nav_inter a:hover {
+    background-color: #d89d0d;
+}
+
+#mi_cuenta{
+    background-color: blue;
+}
+#mi_cuenta:hover{
+    background-color: rgb(85, 85, 233);
+}
+
+
+
+
+
+
+
+    /* titulo principal */
+
+.cabezera_interna .titulo_principal{
+    margin: auto;
+}
+.cabezera_interna .titulo_principal h1{
+    font-size: 40px;
+    text-align: center;
+   font-family: 'Staatliches', cursive;
+}
+
+
+    /* estilos de el formulario */
+#formulario_agregar{
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+
+}
+
+#formulario_agregar form input{
+    width: 95%;
+    max-width:300px;
+    min-height: 20px;
+    margin-bottom: 10px;
+}
+
+#formulario_agregar form p{
+    margin: 5px;
+}
+
+#contenedor_contenido{
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+    margin: auto;
+     
+    position: relative;
+
+}
+
+
+
+#contenido{
+    width: 100px;
+    height: 300px;
+}
+
+/* estilos de el boton de enviar/agregar */
+
+#agregar_publicacion{
+
+    padding: 5px;
+   background-color: #0c4055;
+   border: none;
+   color:wheat;
+    
+}
+
+#agregar_publicacion:hover{
+
+   background-color: #1454a7;
+    
+}
