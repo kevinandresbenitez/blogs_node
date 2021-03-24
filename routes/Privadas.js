@@ -32,7 +32,7 @@ aplicacion.use(bodyparser.urlencoded({ extended: true }));
 
 
 aplicacion.get("/votar_publicacion" , function(ped,res){
-    
+
     if (!ped.session.usuario_email && !ped.session.usuario_contraseña) {
     res.redirect("/ingresar");
     }
@@ -44,30 +44,30 @@ aplicacion.get("/votar_publicacion" , function(ped,res){
                     if (listas.length < 0) {
                         res.redirect(`/`);
                     }
-                
+
             })
-                
-                
-            
+
+
+
                 var query=`update publicaciones set votos = votos+1 where id=${conex.escape(ped.query.id)}`
                 coneccion.query(query,function(eror,listas,columnas){
                 res.redirect(`/detalles?public_id=${ped.query.id}`);
-                })   
-             
-                
-                
-                
-                    
+                })
 
-                
-            
+
+
+
+
+
+
+
                 conex.release();
             })
 
 
         }
-    
-    
+
+
 })
 
 aplicacion.get("/redireccionar_index", function (ped, res) {
@@ -124,7 +124,7 @@ aplicacion.get("/admin/index", function (ped, res) {
         coneccion.getConnection(function (eror, conex) {
             var query = `select titulo,resumen,contenido,foto,votos,fecha_hora,email,contrasena,pseudonimo,avatar,publicaciones.id from publicaciones right join autores on publicaciones.autor_id=autores.id where email = ${conex.escape(ped.session.usuario_email)} and contrasena = ${conex.escape(ped.session.usuario_contraseña)};`
             coneccion.query(query, function (error, lista, columnas) {
-                res.render("admin/admin_index.ejs", { ingreso_registro: ped.flash("correcto"), datos: lista });
+                res.render("admin/admin_index.ejs", { ingreso_registro: ped.flash("correcto"), datos: lista,usuario_registrado :ped.session.usuario_email });
             })
             conex.release()
         })
@@ -141,7 +141,7 @@ aplicacion.get("/agregar", function (ped, res) {
         res.redirect("/ingresar");
     }
     else {
-        res.render("admin/agregar.ejs");
+        res.render("admin/agregar.ejs",{usuario_registrado :ped.session.usuario_email});
     }
 })
 aplicacion.post("/procesar_agregar", function (ped, res) {
@@ -210,7 +210,7 @@ aplicacion.get("/editar_publ", function (ped, res) {
             coneccion.query(query, function (eror, listas, columnas) {
 
                 if (listas.length > 0) {
-                    res.render("admin/editar_public.ejs", { publicacion_id: ped.query.id_publ, titulo: listas[0].titulo, resumen: listas[0].resumen, contenido: listas[0].contenido })
+                    res.render("admin/editar_public.ejs", { publicacion_id: ped.query.id_publ, titulo: listas[0].titulo, resumen: listas[0].resumen, contenido: listas[0].contenido,usuario_registrado :ped.session.usuario_email })
 
                 }
                 else {
@@ -256,4 +256,3 @@ aplicacion.post("/procesar_editar", function (ped, res) {
 
 
 module.exports =aplicacion;
-

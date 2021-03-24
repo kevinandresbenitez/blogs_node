@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/partials/style_footer.css">
+    <link rel="stylesheet" href="../styles/partials/style_header_interno.css">
     <link rel="stylesheet" href="../styles/partials/style_header.css">
     <link rel="stylesheet" href="../styles/style_detalles.css">
 
@@ -20,51 +21,38 @@
 
 
         <article id="articulo">
+          <%- include("partials/header_interno.ejs") %>
 
-            <div class="cabezera_interna">
-                <div class="nav_inter">
-                    <a href="/">Inicio</a>
-                    <a href="/autores">Autores</a>
+                        <div class="author_cont">
 
-                    <% if(usuario_registrado){ %>
+                            <div class="publicado_por">
+                                <div>
+                                <p >Blog publicado por: <a id="autor" href="/autores"><%=datos.pseudonimo%></a></p>
+                                <%if(datos.avatar){%>
+                                    <img src="/avatars/<%=datos.avatar%>" class="img_user">
 
-                        <a href="http://localhost:8080/admin/index" id="mi_cuenta">Mi cuenta</a>
-                        <p id="usuario"><%= usuario_registrado%></p>
-                        <p id="separador">|</p>
-                        <a id="salir" href="/cerrar_seccion">Cerrar sesion</a>
-                    <%}%>
+                                <%}else{%>
+                                    <img src="/images/usuario.png" class="img_user">
+                                <%}%>
+                              </div>
+                            </div>
 
+                            <div class="votos">
+                              <div>
+                                <p> Votos <strong>:</strong> <%=datos.votos%></p>
+                                <p> Votar (+1)</p>
+                                <a href="/votar_publicacion?id=<%= datos.id_publicacion %>"><img src="/icons/thumbs-up.svg" ></a>
+                              </div>
+                            </div>
 
-
-                        <div class="contenedor_publicado_por">
-                            <p id="publicado_por">Blog publicado por: <a id="autor" href="/autores"><%=datos.pseudonimo%></a></p>
-                            <%if(datos.avatar){%>
-                                <img src="/avatars/<%=datos.avatar%>" class="img_user">
-    
-                            <%}else{%>
-                                <img src="/images/usuario.png" class="img_user">                                
-                            <%}%>                                                        
                         </div>
 
-                    <div class="votos">
-                        <p> Votos <strong>:</strong> <%=datos.votos%></p>
-                        <p> Votar (+1)</p>
-                        <a href="/votar_publicacion?id=<%= datos.id_publicacion %>"><img src="/icons/thumbs-up.svg" ></a>
-                        
-                    </div>
-
-                </div>
 
 
-
-            </div>
-
-            <div class="container_1">
-
-                <h1><%= datos.titulo%></h1>
-                 <%-datos.contenido%>
-
-            </div>
+                      <div class="container_1">
+                          <h1><%= datos.titulo%></h1>
+                           <%-datos.contenido%>
+                      </div>
 
 
         </article>

@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../styles/partials/style_header.css">
+        <link rel="stylesheet" href="../styles/partials/style_header_interno.css">
+
         <link rel="stylesheet" href="../styles/partials/style_footer.css">
         <link rel="stylesheet" href="../styles/admin/style_admin_index.css">
 
@@ -15,17 +17,10 @@
         <%- include("../partials/header.ejs")%>
 
 
-        <article id="articulo_reg">
-            <div class="cabezera_interna">
-                <div class="nav_inter">
-                        <a href="/">Inicio</a>
-            
-                        <p id="usuario"><%= datos[0].pseudonimo%> </p>
-                        <p id="separador">|</p>
-                        <a id="salir" href="/cerrar_seccion">Cerrar sesion</a>
-                        
+        <article id="articulo">
 
-                </div>
+          <%- include("../partials/header_interno.ejs") %>
+
 
                 <% if(ingreso_registro.length > 0){%>
                     <div class="titulo_principal">
@@ -37,7 +32,6 @@
                 </div>
                 <%}%>
 
-            </div>
 
 
             <div class="publicaciones">
@@ -64,9 +58,9 @@
                                         <td> <a href="/editar_publ?id_publ=<%= datos[sec].id %>">Editar</a> / <a  href="/eliminar_public?id_publ=<%= datos[sec].id %>">Eliminar</a>   </td>
 
                                     </tr>
-                                <%   } %>                              
+                                <%   } %>
                            <% }else{ %>
-                        
+
                                 <tr>
                                     <td> --- </td>
                                     <td> --- </td>

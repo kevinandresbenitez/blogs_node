@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles/partials/style_header.css">
+        <link rel="stylesheet" href="styles/partials/style_header_interno.css">
         <link rel="stylesheet" href="styles/partials/style_footer.css">
         <link rel="stylesheet" href="styles/style_registro.css">
 
@@ -15,21 +16,18 @@
         <%- include("partials/header.ejs")%>
 
 
-        <article id="articulo_reg">
-            <div class="cabezera_interna">
-                <div class="nav_inter">
-                        <a href="/">Inicio</a>
-                        <a href="/autores">Autores</a>
-                </div>
+        <article id="articulo">
+
+          <%- include("partials/header_interno.ejs") %>
+
                 <div class="titulo_principal">
                     <h1>Registrarse</h1>
                 </div>
-            </div>
 
             <div class="container_article">
                 <div class="container_1">
 
-                    
+
 
                         <fieldset >
                             <legend align="center"><img src="images/usuario.png" alt=""></legend>
@@ -43,30 +41,30 @@
 
 
                             <form action="/procesar_registro" method="POST" id="formulario" enctype="multipart/form-data">
-                                
+
                                 <div id="formulario_content">
 
 
                                     <div>
                                         <div><label for="nombre"><h3>Nombre de usuario</h3></label><p></p>
-                                        <input type="text" name="nombre" placeholder="Nombre..." ></div> 
+                                        <input type="text" name="nombre" placeholder="Nombre..." ></div>
 
                                         <div> <label for="email"><h3>Gmail</h3></label><p></p>
-                                        <input type="email" name="email" placeholder="@gmail..." ></div> 
+                                        <input type="email" name="email" placeholder="@gmail..." ></div>
 
                                         <div><label for="contraseña"><h3>Contraseña</h3></label><p></p>
-                                        <input type="password" name="contraseña" placeholder="Contraseña..." ></div> 
+                                        <input type="password" name="contraseña" placeholder="Contraseña..." ></div>
 
                                         <div><label for="contraseña_verifi"><h3>Verificar contraseña</h3></label><p></p>
-                                        <input type="password" name="contraseña_verifi" placeholder="Contraseña..." ></div> 
+                                        <input type="password" name="contraseña_verifi" placeholder="Contraseña..." ></div>
 
                                         <div><label for="avatar"><h3>Avatar</h3></label><p></p>
-                                            <input type="file" name="avatar" placeholder="Archivo" ></div> 
+                                            <input type="file" name="avatar" placeholder="Archivo" ></div>
 
-                                        <div><input value="Enviar" type="submit" id="boton_enviar_form" onclick="return verificar(this.form)"></div> 
+                                        <div><input value="Enviar" type="submit" id="boton_enviar_form" onclick="return verificar(this.form)"></div>
                                     </div>
 
-                                </div>    
+                                </div>
 
                             </form>
 

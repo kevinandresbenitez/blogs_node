@@ -1,60 +1,21 @@
     /* para que tenga este color a los exteriores de el contenedor */
 #articulo{
-    background-color: #FFDFB5;
-    padding-bottom:10%;
-    min-height: 800px;
+  background: rgb(253,187,45);
+  background: linear-gradient(45deg, rgba(253,187,45,1) 64%, rgba(34,193,195,1) 64%);
+
+
+  padding:5% 0% ;
+  min-height: 800px;
 }
 
+.titulo_principal{
+  margin:auto;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
 
-    /* botones y tituo  */
-.cabezera_interna{
-    width:90%;
-
-    margin: auto;
-    padding: 5px;
-
-    background-color: #FFDFB5;
-
-    display: flex;
-    flex-flow: row wrap;
+  font-size: 2.3rem;
 }
-
-
-
-        /* para los botones internos */
-.cabezera_interna .nav_inter {
-    width: 100%;
-    margin-bottom: 20px;
-
-    display: flex;
-    flex-flow: row wrap;
-}
-.cabezera_interna .nav_inter a {
-    background-color: #b8860b;
-    color: black;
-
-    text-align: center;
-    text-decoration: none;
-
-    padding: 10px;
-    margin: 5px;
-}
-.cabezera_interna .nav_inter a:hover {
-    background-color: #d89d0d;
-}
-
-    /* titulo principal */
-.cabezera_interna .titulo_principal{
-    margin: auto;
-    margin-bottom: 10px
-}
-.cabezera_interna .titulo_principal h1{
-    font-size: 42px;
-    text-align: center;
-
-}
-
-
 
 
     /* para los contenedores */
@@ -67,36 +28,38 @@ article .container_1 {
     display: flex;
     flex-flow: row wrap;
 
-
-
-
 }
 .seccion{
-    width: 30%;
+    width: 32%;
     margin: 10px auto;
-    border: 1px solid black;
+
 
 }
 
 .seccion_1{
-    max-width: 200px;
     height: 50px;
-
-    
     padding: 10px ;
-    margin: auto;
-    
+
     display: flex;
-    overflow: hidden
-    
+    flex-flow: row wrap;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    background: #27ddde;
+    border-radius: 5px 5px 0px 0px;
+
 }
 .seccion_2{
     height: 80px;
-
     padding: 5px;
     margin: auto;
-    
-    border-top: 1px solid black;
+
+    border: 4px solid #27ddde;
+    border-top: none;
+    border-radius: 0px 0px 5px 5px;
+
     display: flex;
     flex-flow: column nowrap;
 
@@ -119,11 +82,11 @@ article .container_1 {
     height: 50px;
     border-radius: 50%;
 
-    margin: auto;
 }
 #nombre_autor{
     width: 100px;
-    margin: auto;
+    margin-left:    10px;
+
 }
 
 
@@ -133,26 +96,18 @@ article .container_1 {
 
 @media (max-width:800px){
 
-
-    
-    
     .seccion{
-        width: 45%;
+        width: 49%;
 
     }
-
-
 }
 
 
 
 @media (max-width:500px){
-
-    
 .seccion{
-    width: 90%;
+    width: 95%;
 
 }
-
 
 }

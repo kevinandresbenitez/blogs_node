@@ -1,58 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap');
 
-    /* para que tenga este color a los exteriores de el contenedor y espacio con el footer*/
-#articulo_reg{
-    background-color: #FFDFB5;
-    padding-bottom: 10%;
+#articulo{
+  background: rgb(253,187,45);
+  background: linear-gradient(45deg, rgba(253,187,45,1) 64%, rgba(34,193,195,1) 64%);
+
+
+  padding:5% 0% ;
+  min-height: 800px;
 }
 
-    /* botones nav internos */
-.cabezera_interna{
-    width:90%;
+.titulo_principal{
+  margin:auto;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
 
-    margin: auto;
-    padding: 5px;
-
-    background-color: #FFDFB5;
-
-    display: flex;
-    flex-flow: row wrap;
-}
-        /* para los botones internos */
-.cabezera_interna .nav_inter {
-    width: 100%;
-    margin-bottom: 20px;
-
-    display: flex;
-    flex-flow: row wrap;
-}
-.cabezera_interna .nav_inter a {
-    background-color: #b8860b;
-    color: black;
-
-    text-align: center;
-    text-decoration: none;
-
-    padding: 10px;
-    margin: 5px;
-}
-.cabezera_interna .nav_inter a:hover {
-    background-color: #d89d0d;
+  font-size: 2.3rem;
 }
 
-
-
-    /* titulo principal */
-
-.cabezera_interna .titulo_principal{
-    margin: auto;
-}
-.cabezera_interna .titulo_principal h1{
-    font-size: 40px;
-    text-align: center;
-   font-family: 'Staatliches', cursive;
-}
 
     /* la imagen centrada  */
 .container_1 fieldset{
@@ -75,18 +41,17 @@
 
         /* lugar reservado para un error con la base de datos */
 #mensaje_error{
+    display: flex;
+    flex-flow: row; wrap;
+    justify-content: center;
+    text-align: center;
     color: red;
 }
 
         /* Contenedor Base */
 .container_article{
     width: 90%;
-
-    padding: 50px 5px;
-
     margin: auto;
-
-    background-color: #FFDFB5;
 
     display: grid;
     grid-template-columns: repeat(12 ,1fr);
@@ -115,7 +80,7 @@
 
     text-align: center;
 
-    
+
 }
 
         /* estilos para los input  */
@@ -142,7 +107,7 @@
         }
 #boton_enviar_form:hover {
             background-color: #585ab9;
-        
+
         }
 
 
@@ -153,23 +118,17 @@
     width: 100%;
     height: 100%;
 
-    grid-column: 4/10;
+    grid-column: 3/11;
 }
 
 
-#mensaje_error{
-    text-align: center;
-}
 
 #formulario{
     padding: 10px;
 }
 
 @media(max-width:800px){
-    .cabezera_interna{
-        width: 95%;
 
-    }
     .container_article{
         width: 95%;
     }
@@ -179,8 +138,3 @@
     }
 
 }
-
-
-
-
-

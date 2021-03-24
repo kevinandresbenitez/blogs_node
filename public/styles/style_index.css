@@ -8,128 +8,46 @@
     background: linear-gradient(45deg, rgba(253,187,45,1) 64%, rgba(34,193,195,1) 64%);
 
 
-    padding:10% ;
+    padding:5% 0% ;
     min-height: 800px;
 }
+.titulo_principal{
+  margin:auto;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
 
-
-    /* botones y tituo  */
-.cabezera_interna{
-    width:90%;
-
-    margin: auto;
-    padding: 5px;
-
-    background-color: #FFDFB5;
-
-    display: flex;
-    flex-flow: row wrap;
+  font-size: 2.3rem;
 }
-
-
-
-        /* para los botones internos */
-.cabezera_interna .nav_inter {
-    width: 100%;
-    margin-bottom: 20px;
-
-    display: flex;
-    flex-flow: row wrap;
-}
-.cabezera_interna .nav_inter a {
-    background-color: #b8860b;
-    color: black;
-
-    text-align: center;
-    text-decoration: none;
-
-    padding: 10px;
-    margin: 5px;
-}
-.cabezera_interna .nav_inter a:hover {
-    background-color: #d89d0d;
-}
-
-
-#mi_cuenta{
-    background-color: blue;
-}
-#mi_cuenta:hover{
-    background-color: rgb(85, 85, 233);
-}
-#usuario{
-    color: black;
-
-    text-align: center;
-    text-decoration: none;
-
-    padding: 10px;
-
-
-    margin: 5px;
-
-}
-#separador{
-  margin:auto 0px;
-}
-#salir{
-    background-color: transparent;
-    color: blue;
-
-    text-align: center;
-    text-decoration: none;
-
-    padding: 10px;
-    margin: 5px;
-
-}
-
-
-    /* titulo principal */
-
-.cabezera_interna .titulo_principal{
-    margin: auto;
-}
-.cabezera_interna .titulo_principal h1{
-    font-size: 40px;
-    text-align: center;
-   font-family: 'Staatliches', cursive;
-}
-
-
 
         /* Contenedor Base */
 .container_article{
-    width: 90%;
-    
-
-    padding: 50px 5px;
-    margin: auto;
-
-    background-color: #FFDFB5;
-
+    margin: 20px auto;
+    padding: 10px;
     display: grid;
     grid-template-columns: repeat(12 ,1fr);
-
-
+    font-size: 1.2rem;
 }
-
-
 
         /* los contenedores principales */
 .container_article .container_1{
     width: 100%;
-    height: 100%;
-    background-color: #46ABE3;
+    height: 150px;
 
-    grid-column: 4/6;
+
+    background-color: #1ecdf6;
+    grid-column: 3/6;
     grid-row: 2/3;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .container_article .container_2{
-    grid-column: 4/10;
+    grid-column: 3/11;
     grid-row: 3/4;
 
-    background-color:#E39F46;
+    background-color:#faab12;
     padding: 10px;
     max-height: 100px;
 
@@ -138,15 +56,23 @@
 }
 
 .container_article .container_3{
-    grid-column: 6/10;
+    grid-column: 6/11;
     grid-row: 1/3;
 
-    background-color:#4FC1FF ;
+    background-color:#4ceedc ;
 
     padding: 10px;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column wrap;
+
+    justify-content:space-between;
+    align-items:flex-start;
+
+    font-style: italic;
 }
+
+
+
 
 
 
@@ -155,27 +81,10 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-
-
-    padding: 15px;
-    margin: auto;
-
-    display: block;
 }
-
-
-
 
         /* darle forma a los contenedores de nombre de usuario fecha y likes */
 .container_article .container_3 >div{
-    width: 100%;
-    max-width: 300px;
-
-    border: rgb(0, 0, 0) 1px solid;
-    border-radius: 20px 0px;
-
-    margin-bottom: 2px;
-
     display: flex;
     flex-flow: row wrap;
 }
@@ -189,25 +98,15 @@
 
             /* Para ubicar los nombre de usuario fecha y likes */
 .container_article .container_3 div p{
-    padding: 5px;
-    margin: auto;
-    margin-left: 2px;    
+    padding: 0px 5px ;
+    margin: auto 0px;
 }
 .container_article .container_3 div h3{
-    padding-left: 10px;
-    margin: auto ;
-    text-align: center;
-}
-
-.container_article .container_3 div img{
-    margin: auto ;
-    margin-right: 2px;
-}
-.container_article .container_3 div:last-child p{
-    margin: auto;
-    margin-left: 2px;
+    padding: 0px 5px;
+    margin: auto 0px;
 
 }
+
 
 
         /* para datle forma al titulo y resumen */
@@ -240,12 +139,11 @@
 
 .cabezera_interna_inf{
     width:90%;
-    
+
     margin: auto;
     padding: 5px;
 
-    background-color: #FFDFB5;
-    
+
     display: flex;
     flex-flow: row wrap;
 }
@@ -273,22 +171,14 @@
 
 .cabezera_interna_inf .nav_inter_inf a:hover {
     border-bottom: 1px solid black;
-    padding-bottom: 1px;
 
 }
 
 @media(max-width:800px){
-    
-            /* para que los contenedores sean responsive en esta medida */
-    .cabezera_interna{
-        width: 95%;
-
-    }
     .container_article{
-        width: 95%;
-
-
+      font-size: 1rem;
     }
+
     .container_article .container_1{
         grid-column: 2/6;
         grid-row: 2/3;
@@ -302,51 +192,19 @@
         grid-row: 1/3;
     }
 
-    /* para ajustar esto  */
-    #usuario{
-    margin: auto;
-    
-    }
-    #separador{
-        display: none;
-    }
-    #salir{
-        margin: auto;
-    
-    }
-
-
-
-
 
 }
 
 @media(max-width:500px){
-            /* para que la imagen sea responsive  */
-    .container_article .container_1 .imagen_user{
-        max-width: 100px;
-        max-height: 100px;
 
-        width: 70%;
-        height: 80%;
-
-        margin: auto ;
-
-    }
-    .container_article .container_1 {
-        height: auto;
-
-    }
-            /* para que los contenedores sean responsive en esta medida */
+      /* para que los contenedores sean responsive en esta medida */
 
 
     .container_article .container_1{
         grid-column: 1/6;
         grid-row: 1/3;
-
-        /* flexbox para hacer que la imagen este en el centro con margin auto  */
-        display: flex; 
-
+        min-height: 120px;
+        height: 100%;
     }
     .container_article .container_2{
         grid-column: 1/13;
@@ -357,28 +215,20 @@
         grid-row: 1/3;
     }
 
-
-
-
-            /* ubicar los titulos y parrafos */
-    .container_article .container_3 div p{
-        margin: auto;
-    }
-    .container_article .container_3 div h3{
-        margin: auto ;
-    }
-}
-
-
-
-
-@media(max-width:300px){
-    /* para que la imagen sea responsive  */
+        /* para que la imagen sea responsive  */
     .container_article .container_1 .imagen_user{
-    max-width: 70px;
-    max-height: 70px;
+      max-width: 100px;
+      max-height: 150px;
 
 
+      margin: auto ;
 
     }
+    .titulo_principal{
+      text-align: left;
+      font-size: 1.8rem;
+    }
+
+
+
 }

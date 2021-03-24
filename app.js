@@ -10,20 +10,9 @@ var Privadas=require('./routes/Privadas')
 var aplicacion = express();
 
 
-
-
-
 aplicacion.use(Apis);
 aplicacion.use(Publicas);
 aplicacion.use(Privadas);
-
-
-
-
-
-
-
-
 
 
 

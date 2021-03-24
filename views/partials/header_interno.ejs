@@ -1,0 +1,23 @@
+<div class="cont_cabezera ">
+    <div class="nav_inter">
+            <a href="/">Inicio</a>
+            <a href="/autores">Autores</a>
+
+
+
+
+
+       <% if(usuario_registrado){ %>
+
+        <a href="/admin/index" id="mi_cuenta">Mi cuenta</a>
+
+        <div>
+          <p id="usuario"><%= usuario_registrado%></p>
+          <p id="separador">|</p>
+          <a id="salir" href="/cerrar_seccion">Cerrar sesion</a>
+        </div>
+        <%}%>
+
+    </div>
+
+</div>

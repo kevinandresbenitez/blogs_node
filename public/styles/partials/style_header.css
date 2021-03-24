@@ -2,7 +2,7 @@
 *{  padding: 0px;
     margin: 0px;
 }
-    
+
 .header{
     display: flex;
     flex-flow: row wrap;
@@ -11,10 +11,10 @@
     background: rgb(2,0,36);
     background: #6CB4EE
 
-}    
+}
 
 .container_header_1{
-    
+
     display: flex;
     flex-flow: row wrap;
 }
@@ -69,8 +69,6 @@
     padding-bottom: 2px;
 
 }
-
-
 .container_header_2 div{
     display: flex;
     justify-content: center;
@@ -81,6 +79,7 @@
     pointer-events: none;
 }
 .container_header_2 div form input{
+
     padding: 5px;
     height: 1.4rem;
     border: none;
@@ -94,6 +93,8 @@
 @media(max-width:800px){
     .header{
         display: block;
+        z-index: 9999 !important;
+
     }
 
     .container_header_1{
@@ -108,7 +109,7 @@
     .container_header_1 button{
         display: block;
     }
-   
+
     .container_header_2{
         width: 70%;
         height: 100%;
@@ -121,32 +122,45 @@
         justify-content: start;
         position: fixed;
     }
+    .container_header_2 div form{
+      display: flex;
+      flex-flow: column wrap;
+
+
+      justify-content: center;
+      align-items: center;
+    }
+    .container_header_2 div form input{
+      margin: 5px auto;
+      max-width: 150px;
+      
+    }
+
 
     .container_header_2 img{
         display: none;
     }
     .container_header_2 a:hover{
-        padding: 10px 15px;
+        padding: 10px 0px;
+
+        padding-left: 12px;
+        padding-right: 3px;
+
     }
 
 }
 
 @keyframes animacion_header_1{
-    to{
-        left: -100%;
-    }
+
     from{
         left:0%;
     }
 }
 
 @keyframes animacion_header_2{
-    to{
-        left: 0%;
-    }
+
     from{
         left:-100%;
     }
+
 }
-
-

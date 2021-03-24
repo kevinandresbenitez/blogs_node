@@ -1,98 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap');
 
-    /* para que tenga este color a los exteriores de el contenedor y espacio con el footer*/
-#articulo_reg{
-    background-color: #FFDFB5;
-    padding-bottom: 15%;
+
+#articulo{
+  background: rgb(253,187,45);
+  background: linear-gradient(45deg, rgba(253,187,45,1) 64%, rgba(34,193,195,1) 64%);
+
+
+  padding:5% 0% ;
+  min-height: 800px;
 }
 
-    /* botones nav internos */
-.cabezera_interna{
-    width:90%;
+.titulo_principal{
+  margin:auto;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
 
-    margin: auto;
-    padding: 5px;
-
-    background-color:#FFDFB5;
-
-    display: flex;
-    flex-flow: row wrap;
-}
-        /* para los botones internos */
-.cabezera_interna .nav_inter {
-    width: 100%;
-    margin-bottom: 20px;
-
-    display: flex;
-    flex-flow: row wrap;
-}
-
-
-.cabezera_interna .nav_inter {
-    width: 100%;
-    margin-bottom: 20px;
-
-    display: flex;
-    flex-flow: row wrap;
-}
-
-
-.cabezera_interna .nav_inter a {
-    background-color: #b8860b;
-    color: black;
-
-    text-align: center;
-    text-decoration: none;
-
-    padding: 10px;
-    margin: 5px;
-}
-.cabezera_interna .nav_inter a:hover {
-    background-color: #d89d0d;
-}
-
-
-#usuario{
-    color: black;
-
-    text-align: center;
-    text-decoration: none;
-
-    padding: 10px;
-
-
-    margin: 5px;
-
-}
-
-#separador{
-    margin: auto 0px;
-}
-#salir{
-    background-color: transparent;
-    color: blue;
-
-    text-align: center;
-    text-decoration: none;
-
-    padding: 10px;
-    margin: 5px;
+  font-size: 2.3rem;
 }
 
 
 
-
-    /* titulo principal */
-
-.cabezera_interna .titulo_principal{
-    margin: auto;
-}
-.cabezera_interna .titulo_principal h1{
-    font-size: 40px;
-    text-align: center;
-   font-family: 'Staatliches', cursive;
-}
 
 
      /* tabla y contenido */
@@ -147,24 +76,6 @@ article #agregar:hover{
       display: block;
       overflow-x: auto;
     }
-
-
-}
-
-@media screen and (max-width: 500px) {
-
-    /* para ajustar esto */
-    #usuario{
-        margin: auto;
-        
-        }
-        #separador{
-            display: none;
-        }
-        #salir{
-            margin: auto;
-        
-        }
 
 
 }

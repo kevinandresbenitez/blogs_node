@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../styles/partials/style_header.css">
+        <link rel="stylesheet" href="../styles/partials/style_header_interno.css">
+
         <link rel="stylesheet" href="../styles/partials/style_footer.css">
         <link rel="stylesheet" href="../styles/partials/admin/style_agregar_editar.css">
         <script src="../javascripts/ckeditor5-build-classic/ckeditor.js"></script>
@@ -16,13 +18,11 @@
         <%- include("../partials/header.ejs")%>
 
 
-        <article id="articulo_agre">
-            <div class="cabezera_interna">
-                <div class="nav_inter">
-                        <a href="/">Inicio</a> 
-                        <a href="http://localhost:8080/admin/index" id="mi_cuenta">Mi cuenta</a>
+        <article id="articulo">
 
-                </div>
+          <%- include("../partials/header_interno.ejs") %>
+
+
 
                 <div class="titulo_principal">
                     <h1>Agregar</h1>
@@ -30,7 +30,7 @@
 
             </div>
 
-            
+
             <div id="formulario_agregar">
                 <form action="/procesar_agregar" method="POST">
 
@@ -50,9 +50,9 @@
 
 
                 </form>
-            </div>    
+            </div>
 
-           
+
 
 
         </article>

@@ -77,7 +77,7 @@ aplicacion.get("/", function (ped, res) {
             var query = `select pseudonimo,avatar,fecha_hora,resumen,titulo,votos,publicaciones.id from autores  join publicaciones on autores.id =publicaciones. autor_id order by fecha_hora DESC limit 5 OFFSET ${conex.escape(pagina)};`
         }
         else {
-            var query = `select pseudonimo,avatar,fecha_hora,resumen,titulo,votos,contenido,publicaciones.id from autores  join publicaciones on autores.id =publicaciones. autor_id 
+            var query = `select pseudonimo,avatar,fecha_hora,resumen,titulo,votos,contenido,publicaciones.id from autores  join publicaciones on autores.id =publicaciones. autor_id
         where titulo regexp '${ped.query.buscar}' or pseudonimo regexp '${ped.query.buscar}' or resumen regexp '${ped.query.buscar}' or contenido regexp '${ped.query.buscar}'  ;  `
 
         }
@@ -101,7 +101,7 @@ aplicacion.get("/detalles", function (ped, res) {
         var verificacion_public = ` select *,publicaciones.id as id_publicacion from publicaciones join autores  on publicaciones.autor_id = autores.id  where publicaciones.id= ${ped.query.public_id};`;
         coneccion.query(verificacion_public, function (eror, filas, columnas) {
 
-            if (filas.length > 0) {
+            if (filas && filas.length > 0) {
                 res.render("detalles.ejs", { datos: filas[0], usuario_registrado: ped.session.usuario_email });
             }
             else {
@@ -124,53 +124,53 @@ aplicacion.get("/autores" ,function(ped,res){
 
         coneccion.query(query, function (eror, lista, columnas) {
 
-            var arreglo =[]; 
+            var arreglo =[];
             let tarea_actual={
-                pseudonimo:undefined 
+                pseudonimo:undefined
             }
-    
-            for(var i=0; lista.length > i ;i++){  
-    
+
+            for(var i=0; lista.length > i ;i++){
+
             if(tarea_actual.pseudonimo != lista[i].pseudonimo){
             tarea_actual={
-                
+
                 pseudonimo:lista[i].pseudonimo,
                 titulo:[lista[i].titulo],
                 avatar:lista[i].avatar,
                 id:[lista[i].id_publicacion]
-            } 
+            }
 
             arreglo.push(tarea_actual);
             }
                 else{ tarea_actual.titulo.push(lista[i].titulo)
                     tarea_actual.id.push(lista[i].id_publicacion) }
-            }  
-                
-            
+            }
 
 
-            res.render("autores.ejs",{datos:arreglo});
+
+
+            res.render("autores.ejs",{datos:arreglo,usuario_registrado: ped.session.usuario_email});
 
         })
 
         conex.release();
     })
-    
-    
-    
-    
+
+
+
+
 
 })
 
 
 
 aplicacion.get("/ingresar", function (ped, res) {
-    res.render("ingresar.ejs", { error: ped.flash("error") });
+    res.render("ingresar.ejs", { error: ped.flash("error"),usuario_registrado: ped.session.usuario_email  });
 })
 
 
 aplicacion.get("/registrarse", function (ped, res) {
-    res.render("formulario_registro.ejs", { error: ped.flash('error') });
+    res.render("formulario_registro.ejs", { error: ped.flash('error'),usuario_registrado: ped.session.usuario_email });
 })
 aplicacion.post("/procesar_registro", function (ped, res) {
 
@@ -194,10 +194,10 @@ aplicacion.post("/procesar_registro", function (ped, res) {
                         ped.flash('error', 'Este Gmail esta duplicado');
                         res.redirect("/registrarse");
                     }
-                    else {  
-                        
-                        
-                        
+                    else {
+
+
+
                             var query = `insert into autores(pseudonimo,email,contrasena) values(${conex.escape(nombre)},${conex.escape(email)},${conex.escape(contraseña)})`
                             coneccion.query(query, function (eror, filas, columnas){
 

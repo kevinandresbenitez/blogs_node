@@ -1,0 +1,85 @@
+/* botones y tituo  */
+.cont_cabezera {
+width:90%;
+
+margin: auto;
+padding: 5px;
+
+background-color: #12f9fa;
+border-radius: 6px;
+}
+
+
+/* para los botones internos */
+.cont_cabezera .nav_inter {
+width: 100%;
+
+display: flex;
+flex-flow: row wrap;
+
+}
+.cont_cabezera .nav_inter div{
+  display: flex;
+  flex-flow: row nowrap;
+  margin: auto;
+}
+
+
+.cont_cabezera .nav_inter a {
+background-color: #84cd5e;
+border-radius: 5px;
+color: #000;
+
+text-align: center;
+text-decoration: none;
+
+padding: 10px;
+margin: 5px;
+}
+.cont_cabezera .nav_inter a:hover {
+background-color: #63c235;
+}
+
+
+#mi_cuenta{
+background-color: blue;
+}
+#mi_cuenta:hover{
+background-color: rgb(85, 85, 233);
+}
+#usuario{
+color: black;
+
+text-align: center;
+text-decoration: none;
+
+padding: 10px;
+margin: 5px;
+}
+#separador{
+margin:auto ;
+}
+#salir{
+background-color: transparent;
+color: blue;
+
+text-align: center;
+text-decoration: none;
+
+padding: 10px;
+margin: 5px;
+
+}
+
+
+
+
+@media (max-width:450px){
+  .cont_cabezera .nav_inter div {
+    flex-flow: column wrap;
+  }
+  #separador{
+    display: none
+  }
+
+}
