@@ -22,7 +22,7 @@
               <%if(!datos.length){%>
                       <h1>! No se encontraron resultados !</h1>
               <%}else{%>
-                      <h1>! Bienvenido a tu viaje !</h1>
+                      <h1> Bienvenido </h1>
                   <%}%>
           </div>
 
@@ -62,9 +62,7 @@
                                 <%=datos[i].fecha_hora.getDate()%>/
                                 <%=datos[i].fecha_hora.getMonth()+1%>/
                                 <%=datos[i].fecha_hora.getFullYear()%>
-                            </div>
                             &nbsp;
-                            <div>
                                 <%= datos[i].fecha_hora.getHours()%>
                                 <strong>:</strong>
                                 <%=datos[i].fecha_hora.getMinutes()%>

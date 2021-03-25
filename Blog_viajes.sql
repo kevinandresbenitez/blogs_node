@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.23, for Linux (x86_64)
 --
--- Host: localhost    Database: blog_viajes
+-- Host: localhost    Database: prueba
 -- ------------------------------------------------------
--- Server version	8.0.22
+-- Server version	8.0.23-0ubuntu0.20.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,8 +29,18 @@ CREATE TABLE `autores` (
   `pseudonimo` varchar(255) NOT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=113 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `autores`
+--
+
+LOCK TABLES `autores` WRITE;
+/*!40000 ALTER TABLE `autores` DISABLE KEYS */;
+INSERT INTO `autores` VALUES (102,'emaildeprueba102@gmail.com','contraseñadeprueba102','Mario','102.jpg'),(103,'emaildeprueba103@gmail.com','contraseñadeprueba103','Felipe','103.jpg'),(117,'emaildeprueba117@gmail.com','contraseñadeprueba117','Maria','117.jpg'),(118,'emaildeprueba118@gmail.com','contraseñadeprueba118','Kevin','118.png'),(141,'emaildeprueba141@gmail.com','contraseñadeprueba141','Sergio','141.png'),(186,'emaildeprueba186@gmail.com','contraseñadeprueba186','Marcos','186.jpg'),(187,'emaildeprueba187@gmail.com','contraseñadeprueba187','Nicov','187.jpeg');
+/*!40000 ALTER TABLE `autores` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `publicaciones`
@@ -51,8 +61,18 @@ CREATE TABLE `publicaciones` (
   PRIMARY KEY (`id`),
   KEY `fk_publicaciones_autores_idx` (`autor_id`),
   CONSTRAINT `fk_publicaciones_autores` FOREIGN KEY (`autor_id`) REFERENCES `autores` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=127 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `publicaciones`
+--
+
+LOCK TABLES `publicaciones` WRITE;
+/*!40000 ALTER TABLE `publicaciones` DISABLE KEYS */;
+INSERT INTO `publicaciones` VALUES (120,'Mi primera publicacion','Aqui probando la base de datos :)','<p>Contenido</p>',NULL,0,'2021-03-25 13:45:03',102),(121,'Mi segunda publicacion','Aqui probando la base de datos :)','<p>Contenido</p>',NULL,0,'2021-03-25 13:46:56',103),(122,'Mi tercera publicacion','Aqui probando la base de datos :)','<p>Contenido</p>',NULL,0,'2021-03-25 13:47:53',117),(123,'Mi cuarta publicacion','Aqui probando la base de datos :)','<p>contenido</p>',NULL,0,'2021-03-25 13:49:10',118),(124,'Mi quinta publicacion','Aqui probando la base de datos :)','<p>Contenido</p><p>&nbsp;</p>',NULL,0,'2021-03-25 13:50:06',141),(125,'Mi sexta publicacion','Aqui probando la base de datos :)','<p>Contenido</p><p>&nbsp;</p>',NULL,0,'2021-03-25 13:51:07',186),(126,'Mi septima publicacion','Aqui probando la base de datos :)','<p>Contenido</p><p>&nbsp;</p>',NULL,0,'2021-03-25 13:52:10',187);
+/*!40000 ALTER TABLE `publicaciones` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -63,4 +83,4 @@ CREATE TABLE `publicaciones` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-20 13:55:13
+-- Dump completed on 2021-03-25 10:57:14
