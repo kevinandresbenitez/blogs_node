@@ -7,12 +7,12 @@
 
 
 
-       <% if(usuario_registrado){ %>
+       <% if(usuario){ %>
 
         <a href="/admin/index" id="mi_cuenta">Mi cuenta</a>
 
         <div>
-          <p id="usuario"><%= usuario_registrado%></p>
+          <p id="usuario"><%= usuario.pseudonimo%></p>
           <p id="separador">|</p>
           <a id="salir" href="/cerrar_seccion">Cerrar sesion</a>
         </div>

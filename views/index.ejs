@@ -19,7 +19,7 @@
           <%- include("partials/header_interno.ejs") %>
 
           <div class="titulo_principal">
-              <%if(!data.length){%>
+              <%if(!datos.length){%>
                       <h1>! No se encontraron resultados !</h1>
               <%}else{%>
                       <h1>! Bienvenido a tu viaje !</h1>
@@ -27,12 +27,12 @@
           </div>
 
 
-            <% for(var i=0 ;data.length > i  ;i++ ) {%>
+            <% for(var i=0 ;datos.length > i  ;i++ ) {%>
             <div class="container_article ">
-                <% if(data[i].avatar && data[i].avatar !=""){  %>
+                <% if(datos[i].avatar && datos[i].avatar !=""){  %>
 
                     <div class="container_1">
-                        <img src="avatars/<%=data[i].avatar%>" alt="" class="imagen_user">
+                        <img src="avatars/<%=datos[i].avatar%>" alt="" class="imagen_user">
                     </div>
 
 
@@ -44,37 +44,37 @@
                 <%}%>
 
                 <div class="container_2">
-                    <div class="titulo"><h1><a  href="/detalles?public_id=<%= data[i].id %> "><%= data[i].titulo%></a></h1></div>
+                    <div class="titulo"><h1><a  href="/detalles?public_id=<%= datos[i].id %> "><%= datos[i].titulo%></a></h1></div>
                     <div class="resumen">
-                        <%=data[i].resumen%>
+                        <%=datos[i].resumen%>
                     </div>
                 </div>
 
                 <div class="container_3">
                     <div>
                         <h3>Autor:</h3>
-                        <p><%=data[i].pseudonimo%></p>
+                        <p><%=datos[i].pseudonimo%></p>
                     </div>
 
                     <div>
                         <h3>Fecha:</h3>
                             <div>
-                                <%=data[i].fecha_hora.getDate()%>/
-                                <%=data[i].fecha_hora.getMonth()+1%>/
-                                <%=data[i].fecha_hora.getFullYear()%>
+                                <%=datos[i].fecha_hora.getDate()%>/
+                                <%=datos[i].fecha_hora.getMonth()+1%>/
+                                <%=datos[i].fecha_hora.getFullYear()%>
                             </div>
                             &nbsp;
                             <div>
-                                <%= data[i].fecha_hora.getHours()%>
+                                <%= datos[i].fecha_hora.getHours()%>
                                 <strong>:</strong>
-                                <%=data[i].fecha_hora.getMinutes()%>
+                                <%=datos[i].fecha_hora.getMinutes()%>
                             </div>
 
                     </div>
 
                     <div>
                         <img src="icons/thumbs-up.svg" alt="">
-                        <p>( <%=data[i].votos%> )</p>
+                        <p>( <%=datos[i].votos%> )</p>
                     </div>
 
 
@@ -93,13 +93,13 @@
 
                     <div class="nav_inter_inf">
 
-                        <%if(pagina_actual == 0 && data.length >= 5 ){ %>
+                        <%if(pagina_actual == 0 && datos.length >= 5 ){ %>
 
                         <%}   else if(pagina_actual > 0){   %>
                             <a href="/?pagina=<%= pagina_anterior %> ">Anterior</a>
                         <%}%>
 
-                        <%if(data.length == 5 ){%>
+                        <%if(datos.length == 5 ){%>
                             <a href="/?pagina=<%= pagina_siguiente %> ">Siguiente</a>
 
                         <%}%>

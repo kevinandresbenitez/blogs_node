@@ -69,10 +69,6 @@ aplicacion.get("/", function (ped, res) {
             pagina = pagina_actual * 5;
         }
 
-
-
-
-
         if (!ped.query.buscar) {
             var query = `select pseudonimo,avatar,fecha_hora,resumen,titulo,votos,publicaciones.id from autores  join publicaciones on autores.id =publicaciones. autor_id order by fecha_hora DESC limit 5 OFFSET ${conex.escape(pagina)};`
         }
@@ -82,13 +78,11 @@ aplicacion.get("/", function (ped, res) {
 
         }
 
-        if (ped.session.usuario_email && ped.session.usuario_contraseña) {
-            var usuario_registrado = ped.session.usuario_email;
-        }
+
 
 
         coneccion.query(query, function (eror, listas, columnas) {
-            res.render("index.ejs", { data: listas, usuario_registrado: usuario_registrado, pagina_siguiente: pagina_siguiente, pagina_anterior: pagina_anterior, pagina_actual: pagina_actual });
+            res.render("index.ejs", { datos: listas, usuario: ped.session.usuario, pagina_siguiente: pagina_siguiente, pagina_anterior: pagina_anterior, pagina_actual: pagina_actual });
             conex.release();
         })
     })
@@ -102,7 +96,7 @@ aplicacion.get("/detalles", function (ped, res) {
         coneccion.query(verificacion_public, function (eror, filas, columnas) {
 
             if (filas && filas.length > 0) {
-                res.render("detalles.ejs", { datos: filas[0], usuario_registrado: ped.session.usuario_email });
+                res.render("detalles.ejs", { datos: filas[0], usuario: ped.session.usuario });
             }
             else {
                 res.redirect("/")
@@ -149,7 +143,7 @@ aplicacion.get("/autores" ,function(ped,res){
 
 
 
-            res.render("autores.ejs",{datos:arreglo,usuario_registrado: ped.session.usuario_email});
+            res.render("autores.ejs",{datos:arreglo,usuario: ped.session.usuario});
 
         })
 
@@ -165,12 +159,12 @@ aplicacion.get("/autores" ,function(ped,res){
 
 
 aplicacion.get("/ingresar", function (ped, res) {
-    res.render("ingresar.ejs", { error: ped.flash("error"),usuario_registrado: ped.session.usuario_email  });
+    res.render("ingresar.ejs", { error: ped.flash("error"),usuario: ped.session.usuario  });
 })
 
 
 aplicacion.get("/registrarse", function (ped, res) {
-    res.render("formulario_registro.ejs", { error: ped.flash('error'),usuario_registrado: ped.session.usuario_email });
+    res.render("formulario_registro.ejs", { error: ped.flash('error'),usuario: ped.session.usuario });
 })
 aplicacion.post("/procesar_registro", function (ped, res) {
 
@@ -195,9 +189,6 @@ aplicacion.post("/procesar_registro", function (ped, res) {
                         res.redirect("/registrarse");
                     }
                     else {
-
-
-
                             var query = `insert into autores(pseudonimo,email,contrasena) values(${conex.escape(nombre)},${conex.escape(email)},${conex.escape(contraseña)})`
                             coneccion.query(query, function (eror, filas, columnas){
 
@@ -223,7 +214,6 @@ aplicacion.post("/procesar_registro", function (ped, res) {
                                 enviar_correo(email);
                                 ped.session.usuario_email = email;
                                 ped.session.usuario_contraseña = contraseña;
-                                ped.flash('correcto', 'Usted se a registrado correctamente');
                                 res.redirect("/redireccionar_index");
 
 
@@ -233,6 +223,24 @@ aplicacion.post("/procesar_registro", function (ped, res) {
                 })
             }
         })
+        conex.release();
+    })
+})
+
+aplicacion.get("/redireccionar_index", function (ped, res) {
+    coneccion.getConnection(function (error, conex) {
+        var email = ped.session.usuario_email;
+        var contraseña = ped.session.usuario_contraseña;
+
+        var query = `select * from autores where email = ${conex.escape(email)} and contrasena = ${conex.escape(contraseña)}  `;
+
+        coneccion.query(query, function (eror, filas, columnas) {
+            ped.session.usuario=filas[0];
+            ped.flash('correcto', 'Usted se a registrado correctamente');
+            res.redirect('/admin/index');
+        })
+
+
         conex.release();
     })
 })

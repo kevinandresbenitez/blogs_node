@@ -33,14 +33,14 @@
                         <input type="hidden" name="id" value="<%= publicacion_id %>">
 
                         <label for="titulo">Titulo</label><p></p>
-                        <input type="text" placeholder="Titulo..." name="titulo" required value="<%=titulo%>"><p></p>
+                        <input type="text" placeholder="Titulo..." name="titulo" required value="<%=datos.titulo%>"><p></p>
 
                         <label for="resumen">Resumen</label><p></p>
-                        <input type="text" name="resumen" id="resumen" required value="<%=resumen%>"><p></p>
+                        <input type="text" name="resumen" id="resumen" required value="<%=datos.resumen%>"><p></p>
 
 
                         <label for="contenido">Contenido</label><p></p>
-                        <div id="contenedor_contenido"><textarea name="contenido" id="contenido"  cols="30" rows="10" ><%=contenido%></textarea><p></p></div>
+                        <div id="contenedor_contenido"><textarea name="contenido" id="contenido"  cols="30" rows="10" ><%=datos.contenido%></textarea><p></p></div>
 
 
                         <input type="submit" name="agreagar" id="agregar_publicacion" value="Agregar">
